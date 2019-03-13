@@ -8,8 +8,9 @@
         <input type="text" name="password" placeholder="password"/>
       </div>
       <div class="tb-form_fields">
-        <button type="button">Submit</button>
+        <button type="button">Login</button>
       </div>
+      <router-link to="/auth/create-account" tag="a">Create account</router-link>
     </form>
   </div>
 </template>
@@ -33,6 +34,7 @@
     width: 400px;
     outline: none;
     padding-left: 10px;
+    border-bottom: 0 solid grey;
   }
 
   button {
@@ -43,13 +45,5 @@
     outline: none;
     cursor: pointer;
     color: #fff;
-  }
-
-  .tb-form_fields:nth-child(2) {
-    /*margin-bottom: 20px;*/
-  }
-
-  input[type="email"]:first-child {
-    border-bottom: 0 solid grey;
   }
 </style>

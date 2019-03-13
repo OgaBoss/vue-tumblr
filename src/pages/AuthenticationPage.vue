@@ -2,9 +2,7 @@
   <div class="authentication">
     <div class="tb-bkg"></div>
     <div class="forms">
-      <div class="tb-views">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -38,6 +36,9 @@
     .forms {
       flex: 0 0 100%;
       background-color: #fafafa;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
     }
 
     @media only screen and (min-width: 650px) {

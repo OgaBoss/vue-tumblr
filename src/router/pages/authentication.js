@@ -10,7 +10,7 @@ const authentication = [
       {
         path: 'login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "auth" */'../../components/authentication/LoginComponent.vue'),
+        component: () => import(/* webpackChunkName: "login" */'../../components/authentication/LoginComponent.vue'),
       },
       {
         path: 'create-account',
