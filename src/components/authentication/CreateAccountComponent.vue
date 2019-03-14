@@ -1,17 +1,17 @@
 <template>
   <div class="tb-login">
-    <form @submit.prevent="">
+    <form @submit.prevent="createNewAccount">
       <div class="tb-form_fields">
-        <input type="email" name="email"  placeholder="email"/>
+        <input type="email" name="email" v-model="form.email" placeholder="email"/>
       </div>
       <div class="tb-form_fields">
-        <input type="text" name="username"  placeholder="username"/>
+        <input type="text" name="username" v-model="form.username" placeholder="username"/>
       </div>
       <div class="tb-form_fields">
-        <input type="text" name="password" placeholder="password"/>
+        <input type="text" name="password" v-model="form.password" placeholder="password"/>
       </div>
       <div class="tb-form_fields">
-        <button type="button">Create</button>
+        <button>Create</button>
       </div>
       <router-link to="/auth/login" tag="a">Login</router-link>
     </form>
@@ -19,11 +19,24 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {};
-		},
-	};
+export default {
+  data() {
+    return {
+    	form: {
+    		email: '',
+        username: '',
+        password: '',
+      }
+    };
+  },
+
+  methods: {
+    createNewAccount() {
+    	// Dispatch an action
+      this.$store.dispatch('createNewAccount', this.form);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,4 +63,3 @@
     color: #fff;
   }
 </style>
-
