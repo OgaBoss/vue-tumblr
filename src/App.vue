@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="tb-error-cmp">
+
+    </div>
     <router-view/>
   </div>
 </template>
@@ -13,5 +16,11 @@
 }
   html, body, #app {
     height: 100%;
+  }
+
+  .tb-error-cmp{
+    height: 50px;
+    width: 100%;
+    background-color: forestgreen;
   }
 </style>
