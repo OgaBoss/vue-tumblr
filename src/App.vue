@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <error-cmp></error-cmp>
+    <notify></notify>
     <router-view/>
   </div>
 </template>
 
 <script>
-import ErrorComponent from './components/error/ErrorComponent'
+import Notification from './components/error/Notification';
+
 export default {
   components: {
-    'error-cmp': ErrorComponent
+    'notify': Notification,
   },
-}
+};
 </script>
 
 

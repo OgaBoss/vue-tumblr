@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 import FireBaseService from '../../services/firebase';
 
+import router from '../../router';
+
 const user = {
   state: {
     user: {},
@@ -15,7 +17,7 @@ const user = {
     },
   },
   actions: {
-    createNewAccount: async ({ commit, dispatch }, payload) => {
+    createNewAccount: async ({ dispatch }, payload) => {
       try {
         const response = await FireBaseService.register({
           email: payload.email,
@@ -24,6 +26,9 @@ const user = {
         console.log(response);
         // Create a success notification
         // redirect to login page
+        dispatch('actionSetNotificationMessages', ['Account creation successfull']);
+        dispatch('actionSetNotificationType', 'success');
+        router.push({ path: 'login' });
       } catch (error) {
         dispatch('actionSetNotificationMessages', [error.message]);
         dispatch('actionSetNotificationType', 'error');

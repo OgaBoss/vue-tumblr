@@ -26,7 +26,7 @@ export default {
     		email: '',
         username: '',
         password: '',
-      }
+      },
     };
   },
 
@@ -34,8 +34,8 @@ export default {
     createNewAccount() {
     	// Dispatch an action
       this.$store.dispatch('createNewAccount', this.form);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -11,6 +11,7 @@ const notification = {
 
   mutations: {
     setNotificationMessages: (state, payload) => {
+      state.messages = [];
       payload.forEach((message) => {
         state.messages.push(message);
       });
@@ -24,7 +25,6 @@ const notification = {
 
   actions: {
     actionSetNotificationMessages: ({ commit }, payload) => {
-      console.log(payload);
       commit('setNotificationMessages', payload);
     },
 
