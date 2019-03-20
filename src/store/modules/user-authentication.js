@@ -34,6 +34,19 @@ const user = {
         dispatch('actionSetNotificationType', 'error');
       }
     },
+
+    actionLogin: async ({ commit, dispatch }, payload) => {
+      try {
+        const response = await FireBaseService.login({ email: payload.email, password: payload.password });
+        if (response) {
+          commit('setUserData', { email: payload.email });
+          dispatch('actionSetNotificationMessages', ['Login successfull']);
+          dispatch('actionSetNotificationType', 'success');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 
