@@ -15,12 +15,18 @@ const user = {
     },
   },
   actions: {
-    createNewAccount: async ({ commit }, payload) => {
+    createNewAccount: async ({ commit, dispatch }, payload) => {
       try {
-        let response = await FireBaseService.register({ email: payload.email, password: payload.password });
+        const response = await FireBaseService.register({
+          email: payload.email,
+          password: payload.password,
+        });
         console.log(response);
+        // Create a success notification
+        // redirect to login page
       } catch (error) {
-        console.log(error)
+        dispatch('actionSetNotificationMessages', [error.message]);
+        dispatch('actionSetNotificationType', 'error');
       }
     },
   },

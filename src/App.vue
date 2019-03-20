@@ -1,26 +1,32 @@
 <template>
   <div id="app">
-    <div class="tb-error-cmp">
-
-    </div>
+    <error-cmp></error-cmp>
     <router-view/>
   </div>
 </template>
 
+<script>
+import ErrorComponent from './components/error/ErrorComponent'
+export default {
+  components: {
+    'error-cmp': ErrorComponent
+  },
+}
+</script>
+
+
 <style lang="scss">
   @import "../node_modules/normalize.css/normalize.css";
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   html, body, #app {
     height: 100%;
   }
 
-  .tb-error-cmp{
-    height: 50px;
-    width: 100%;
-    background-color: forestgreen;
+  ul {
+    margin: 0
   }
 </style>
