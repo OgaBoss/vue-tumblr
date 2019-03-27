@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import firebase from 'firebase';
 import FireBaseService from '../../services/firebase';
 
 import router from '../../router';
@@ -19,11 +20,13 @@ const user = {
   actions: {
     createNewAccount: async ({ dispatch }, payload) => {
       try {
-        const response = await FireBaseService.register({
+        await FireBaseService.register({
           email: payload.email,
           password: payload.password,
         });
-        console.log(response);
+        await firebase.auth().currentUser.updateProfile({
+          displayName: payload.username,
+        });
         // Create a success notification
         // redirect to login page
         dispatch('actionSetNotificationMessages', ['Account creation successfull']);
@@ -37,14 +40,18 @@ const user = {
 
     actionLogin: async ({ commit, dispatch }, payload) => {
       try {
-        const response = await FireBaseService.login({ email: payload.email, password: payload.password });
+        const response = await FireBaseService.login({
+          email: payload.email,
+          password: payload.password,
+        });
         if (response) {
           commit('setUserData', { email: payload.email });
           dispatch('actionSetNotificationMessages', ['Login successfull']);
           dispatch('actionSetNotificationType', 'success');
         }
       } catch (error) {
-        console.log(error);
+        dispatch('actionSetNotificationMessages', [error.message]);
+        dispatch('actionSetNotificationType', 'error');
       }
     },
   },

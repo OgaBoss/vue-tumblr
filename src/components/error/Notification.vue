@@ -1,8 +1,9 @@
 <template>
-	<div v-bind:class="notificationStyle" class="tb-error-cmp" v-if="notifications.length > 0" >
+	<div v-bind:class="notificationStyle" class="tb-notify-cmp" v-if="notifications.length > 0" >
 		<ul>
 			<li v-for="item in notifications" :key="item">{{ item }}</li>
 		</ul>
+		<i class="fas fa-times" @click="resetNotification"></i>
 	</div>
 </template>
 
@@ -24,15 +25,32 @@ export default {
         warning: notificationType === 'warning',
       };
     },
-  },
+	},
+	
+	methods: {
+		resetNotification() {
+			this.$store.state.ErrorStore.messages = [];
+		}
+	}
 };
 </script>
 
 <style lang="scss" scoped>
-	.tb-error-cmp{
-		height: 50px;
+	.tb-notify-cmp{
+		height: auto;
 		width: 100%;
 		color: white;
+
+		li {
+			list-style: none;
+			padding: 5px;
+		}
+		i {
+			position: absolute;
+    	top: 0px;
+    	right: 20px;
+    	padding: 5px;
+		}
 	}
 
 	.error {

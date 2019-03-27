@@ -2,10 +2,10 @@
 import {
   shallowMount,
   createLocalVue,
-  RouterLinkStub
+  RouterLinkStub,
 } from '@vue/test-utils';
-import LoginComponent from '../LoginComponent.vue';
 import VueRouter from 'vue-router';
+import LoginComponent from '../LoginComponent.vue';
 
 const localVue = createLocalVue();
 localVue.use(VueRouter);
@@ -27,5 +27,5 @@ describe('Login CMP', () => {
   test('router-link redirects to create-account page', () => {
     expect(wrapper.find(RouterLinkStub).props().to).toBe('/auth/create-account');
     expect(wrapper.find(RouterLinkStub).text()).toBe('Create account');
-  })
+  });
 });

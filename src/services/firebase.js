@@ -6,7 +6,10 @@ const firebaseService = {
   },
 
   login(payload) {
-    return firebase.auth().signInAndRetrieveDataWithEmailAndPassword(payload.email, payload.password);
+    return firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
+      payload.email,
+      payload.password,
+    );
   },
 };
 
