@@ -11,6 +11,10 @@ const firebaseService = {
       payload.password,
     );
   },
+
+  updateUserprofile(userData) {
+    return firebase.auth().currentUser.updateProfile(userData)
+  }
 };
 
 export default firebaseService;

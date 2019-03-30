@@ -6,12 +6,15 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:unit": "vue-cli-service test:unit -u -i",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:watch": "vue-cli-service test:unit --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^5.8.6",
+    "flush-promises": "^1.0.2",
+    "lodash.clonedeep": "^4.5.0",
     "normalize.css": "^8.0.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.6",

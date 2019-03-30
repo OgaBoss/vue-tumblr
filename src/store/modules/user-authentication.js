@@ -24,11 +24,12 @@ const user = {
           email: payload.email,
           password: payload.password,
         });
-        await firebase.auth().currentUser.updateProfile({
+
+        // Save username
+        await FireBaseService.updateUserprofile({
           displayName: payload.username,
         });
-        // Create a success notification
-        // redirect to login page
+
         dispatch('actionSetNotificationMessages', ['Account creation successfull']);
         dispatch('actionSetNotificationType', 'success');
         router.push({ path: 'login' });
