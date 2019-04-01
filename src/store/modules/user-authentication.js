@@ -49,6 +49,7 @@ const user = {
           commit('setUserData', { email: payload.email });
           dispatch('actionSetNotificationMessages', ['Login successfull']);
           dispatch('actionSetNotificationType', 'success');
+          router.push({ path: '/dashboard' });
         }
       } catch (error) {
         dispatch('actionSetNotificationMessages', [error.message]);
