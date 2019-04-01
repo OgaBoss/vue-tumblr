@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 // import modules
 import UserAuthentication from './modules/user-authentication';
@@ -12,6 +13,9 @@ const store = new Vuex.Store({
     UserAuthentication,
     ErrorStore,
   },
+  plugins: [createPersistedState({
+    paths: ['UserAuthentication'],
+  })],
 });
 
 export default store;

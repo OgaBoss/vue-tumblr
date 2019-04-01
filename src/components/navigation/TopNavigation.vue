@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <router-link to="dashboard" class="brand-logo">tumblrr</router-link>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Dami</a></li>
+        <li><a href="#">{{userName}}</a></li>
         <li><a href="#">Posts</a></li>
         <li><a href="#">Wishlist</a></li>
       </ul>
@@ -18,7 +18,11 @@
 
 <script>
 export default {
-
+  computed: {
+    userName() {
+      return this.$store.getters.getUserData.username;
+    }
+  }
 }
 </script>
 

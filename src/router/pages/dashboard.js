@@ -4,6 +4,9 @@ const dashboard = [
     name: 'dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */'../../pages/DashboardPage.vue'),
     children: [],
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/search_posts',

@@ -6,7 +6,10 @@ import router from '../../router';
 
 const user = {
   state: {
-    user: {},
+    user: {
+      email: '',
+      username: '',
+    },
   },
 
   getters: {
@@ -46,7 +49,7 @@ const user = {
           password: payload.password,
         });
         if (response) {
-          commit('setUserData', { email: payload.email });
+          commit('setUserData', { email: payload.email, username: response.user.displayName });
           dispatch('actionSetNotificationMessages', ['Login successfull']);
           dispatch('actionSetNotificationType', 'success');
           router.push({ path: '/dashboard' });
