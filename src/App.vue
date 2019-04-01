@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss">
   @import "../node_modules/normalize.css/normalize.css";
+  @import '../node_modules/materialize-css/dist/css/materialize.min';
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
