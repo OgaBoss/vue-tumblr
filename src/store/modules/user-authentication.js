@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import firebase from 'firebase';
 import FireBaseService from '../../services/firebase';
 
 import router from '../../router';

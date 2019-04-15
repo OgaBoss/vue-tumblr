@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "epic-spinners": "^1.0.4",
     "firebase": "^5.8.6",
     "flush-promises": "^1.0.2",
+    "lodash.chunk": "^4.2.0",
     "lodash.clonedeep": "^4.5.0",
     "materialize-css": "^1.0.0-rc.2",
     "normalize.css": "^8.0.1",
